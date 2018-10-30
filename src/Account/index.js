@@ -12,7 +12,7 @@ class Account extends Component {
     console.log(this.inputBox.value)
     e.preventDefault()
     this.setState({
-      balance: parseInt(this.inputBox.value)
+      balance: parseInt(this.inputBox.value) + this.state.balance
     })
   }
   render() {
