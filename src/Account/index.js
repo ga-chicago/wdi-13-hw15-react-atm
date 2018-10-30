@@ -15,6 +15,12 @@ class Account extends Component {
       balance: parseInt(this.inputBox.value) + this.state.balance
     })
   }
+  handleWithdraw = (e) => {
+    e.preventDefault()
+    this.setState({
+      balance: parseInt(this.state.balance) - this.inputBox.value
+    })
+  }
   render() {
     return (
       <div className="account">
@@ -22,7 +28,7 @@ class Account extends Component {
         <div className="balance">{this.state.balance}</div>
         <input type="text" placeholder="enter an amount" ref={(input) => this.inputBox = input} />
         <input onClick={this.handleDeposit} type="button" value="Deposit" />
-        <input type="button" value="Withdraw" />
+        <input onClick={this.handleWithdraw}type="button" value="Withdraw" />
       </div>
     )
   }
